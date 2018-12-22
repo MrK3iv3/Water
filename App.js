@@ -3,6 +3,7 @@
     let targetsToHidden = document.querySelectorAll("[water-hidden-target]")
     let targetsToDelete = document.querySelectorAll("[water-delete-target]")
     let tooltips = document.querySelectorAll(".tooltip")
+    let buttonLink = document.querySelectorAll("[href]")
     lists.forEach((item) =>{
         item.addEventListener("click", function(e){
             let circle = document.createElement("div")
@@ -36,6 +37,12 @@
         let span = document.createElement("span")
         span.setAttribute("class", "tooltip-icon")
         tooltip.appendChild(span)
+    })
+    buttonLink.forEach((link) =>{
+        link.addEventListener("click", function(e){
+            e.preventDefault()
+            document.location.href = link.getAttribute("href")
+        })
     })
     let resize = () =>{
         if(document.body.offsetWidth <= 576){
@@ -90,6 +97,4 @@
     }
     resize()
     window.addEventListener("resize", resize)
-    
-    // module.exports(Water, "water")
 })()
